@@ -14,7 +14,8 @@ module.exports = {
     getUserByEmail: (email) => users.find(user => user.email === email),
 
     createUser: (name, email, password) => {
-        const newUser = { id: uuid(), name, email, password: bcrypt.hashSync(password, 10) }
+        // bcrypt.hashSync esta criptografando a senha
+        const newUser = { id: uuid(), name, email, password: bcrypt.hashSync(password, 10) } 
         users.push(newUser)
         return newUser
     }
