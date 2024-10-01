@@ -21,3 +21,5 @@ module.exports = {
         }
     }
 }
+
+// PAREI NO VIDEO PARTE 2 NO MINUTO 7:25

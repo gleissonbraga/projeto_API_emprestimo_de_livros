@@ -1,6 +1,7 @@
 const usersModel = require("../models/users-model")
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcrypt')
+const HttpError = require("../errors/HttpError")
 
 module.exports = {
     // POST /auth/register
@@ -24,7 +25,7 @@ module.exports = {
         const { email, password } = req.body
 
         if(typeof email !== 'string' || typeof password !== 'string') {
-            return res.status(400).json({ message: 'Todos os campos são obrigatórios' })
+            throw new HttpError( 400, 'Todos os campos são obrigatórios' )
         }
 
         const user = usersModel.getUserByEmail(email)
